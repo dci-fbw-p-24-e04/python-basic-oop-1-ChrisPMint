@@ -16,24 +16,41 @@ class Queue:
 
     def is_empty(self):
         # TODO: Replace 'pass' with your code
-        pass
+        if self._data:
+            return False
+        else:
+            return True
 
     @property
     def size(self):
         # TODO: Replace 'pass' with your code
-        pass
+        return len(self._data)
 
     def enqueue(self, item):
         # TODO: Replace 'pass' with your code
-        pass
+        self._data.append(item)
 
     def peek(self):
         # TODO: Replace 'pass' with your code
-        pass
+        try:
+            return self._data[0]
+        except IndexError:
+            print("The list is empty.")
+        except:
+            print("Something has gone wrong.")
 
     def dequeue(self):
         # TODO: Replace 'pass' with your code
-        pass
+        try:
+            # item = self._data.copy()[0]
+            # self._data.remove(self._data[0])
+            # return item
+            return self._data.popleft()
+        except IndexError:
+            print("The list is empty.")
+        except:
+            print("Something has gone wrong.")
+
 
     def __str__(self) -> str:
         return str(self._data)
@@ -41,8 +58,8 @@ class Queue:
 
 if __name__ == "__main__":
     q = Queue()
-    q.enqueue(0)
-    q.enqueue(1)
+    q.enqueue(20)
+    q.enqueue(50)
     print(q)
     print("Size of Queue: ", q.size)
     print("Peek the Queue: ", q.peek())
